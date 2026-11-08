@@ -1,0 +1,9 @@
+{
+  "itemGroup.eerietapes": "Жуткие кассеты",
+  "item.eerietapes.tape_house": "Кассета: Как пережить вечер дома одному",
+  "item.eerietapes.tape_forest": "Кассета: Ты не один в лесу",
+  "entity.eerietapes.watcher": "Наблюдатель",
+  "entity.eerietapes.mimic": "Подражатель",
+  "item.eerietapes.watcher_spawn_egg": "Яйцо призыва: Наблюдатель",
+  "item.eerietapes.mimic_spawn_egg": "Яйцо призыва: Подражатель"
+}

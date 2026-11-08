@@ -1,0 +1,9 @@
+{
+  "itemGroup.eerietapes": "Eerie Tapes",
+  "item.eerietapes.tape_house": "Tape: How to Survive Home Alone",
+  "item.eerietapes.tape_forest": "Tape: You Are Not Alone in the Woods",
+  "entity.eerietapes.watcher": "The Watcher",
+  "entity.eerietapes.mimic": "The Mimic",
+  "item.eerietapes.watcher_spawn_egg": "Watcher Spawn Egg",
+  "item.eerietapes.mimic_spawn_egg": "Mimic Spawn Egg"
+}
