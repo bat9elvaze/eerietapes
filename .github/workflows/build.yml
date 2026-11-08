@@ -10,6 +10,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Restore project structure
+        run: |
+          if [ ! -d src/main/java ]; then
+            J=src/main/java/com/eerietapes
+            R=src/main/resources
+            A=$R/assets/eerietapes
+            D=$R/data/eerietapes
+            mkdir -p $J $R/META-INF $A/lang $A/models/item $A/textures/entity $A/textures/item $D/dimension $D/dimension_type
+            cp ClientEvents.java CreepyRenderer.java EerieTapes.java MimicEntity.java ModEntities.java ModEvents.java ModItems.java ScenarioManager.java TapeItem.java TapeType.java WatcherEntity.java $J/
+            cp mods.toml $R/META-INF/
+            cp pack.mcmeta $R/
+            cp en_us.json ru_ru.json $A/lang/
+            cp tape_house.json tape_forest.json watcher_spawn_egg.json mimic_spawn_egg.json $A/models/item/
+            cp watcher.png mimic.png $A/textures/entity/
+            cp tape_house.png tape_forest.png $A/textures/item/
+            for f in tape_world*.json; do
+              if grep -q ultrawarm "$f"; then cp "$f" $D/dimension_type/tape_world.json; else cp "$f" $D/dimension/tape_world.json; fi
+            done
+          fi
+          find src -type f | sort
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -21,6 +42,9 @@ jobs:
 
       - name: Build
         run: gradle build --no-daemon
+
+      - name: Show jar contents
+        run: unzip -l build/libs/*.jar | tail -n 40
 
       - uses: actions/upload-artifact@v4
         with:
